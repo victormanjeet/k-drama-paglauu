@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#ff6b9d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Baby Giraffe 🦒 K-Drama Love Test 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+
+  :root {
+    --pink-light: #ffd6e8;
+    --pink: #ff6b9d;
+    --pink-dark: #ff4d88;
+    --purple: #a882ff;
+    --text: #4a1f3d;
+    --text-soft: #7a4f66;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100vh;
+    background: #fff0f6;
+    overflow-x: hidden;
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior-y: none;
+    touch-action: manipulation;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  .bg-blobs {
+    position: fixed; inset: 0; z-index: 0;
+    overflow: hidden; pointer-events: none;
+    /* Use will-change for GPU acceleration */
+    will-change: transform;
+  }
+  .blob {
+    position: absolute; border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.55;
+    animation: floatBlob 25s infinite ease-in-out;
+    /* GPU acceleration */
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  .blob1 { width: 300px; height: 300px; background: #ffb8d0; top: -80px; left: -80px; }
+  .blob2 { width: 380px; height: 380px; background: #d4c4ff; bottom: -120px; right: -80px; animation-delay: -5s; }
+  .blob3 { width: 260px; height: 260px; background: #ffe0ec; top: 40%; left: 50%; animation-delay: -10s; }
+  .blob4 { width: 220px; height: 220px; background: #c8e8ff; bottom: 10%; left: 10%; animation-delay: -15s; }
+  @keyframes floatBlob {
+    0%, 100% { transform: translate(0, 0) scale(1) translateZ(0); }
+    50% { transform: translate(40px, -30px) scale(1.08) translateZ(0); }
+  }
+
+  /* Reduce blur on mobile for performance */
+  @media (max-width: 768px) {
+    .blob { filter: blur(40px); }
+  }
+
+  #particles {
+    position: fixed; inset: 0;
+    pointer-events: none; z-index: 1;
+    will-change: transform;
+  }
+
+  .navbar {
+    position: fixed; top: 0; left: 0; right: 0;
+    padding: 14px 20px;
+    padding-top: calc(14px + env(safe-area-inset-top));
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 20px rgba(255, 107, 157, 0.08);
+    /* GPU */
+    transform: translateZ(0);
+  }
+  .logo {
+    display: flex; align-items: center; gap: 8px;
+    font-weight: 700; font-size: 1rem;
+    color: var(--pink-dark);
+  }
+  .logo-emoji {
+    font-size: 1.4rem; display: inline-block;
+    animation: wiggle 3s infinite ease-in-out;
+    transform: translateZ(0);
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-8deg) translateZ(0); }
+    50% { transform: rotate(8deg) translateZ(0); }
+  }
+  .click-badge {
+    background: linear-gradient(45deg, var(--pink), var(--purple));
+    color: white; padding: 7px 14px; border-radius: 50px;
+    font-size: 0.78rem; font-weight: 600;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+    display: flex; align-items: center; gap: 5px;
+  }
+
+  .screen {
+    position: relative; min-height: 100vh;
+    min-height: 100dvh;
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 90px 18px 50px;
+    padding-top: calc(90px + env(safe-area-inset-top));
+    padding-bottom: calc(50px + env(safe-area-inset-bottom));
+    z-index: 2;
+  }
+  .screen.active { display: flex; animation: fadeScreen 0.5s ease; }
+  @keyframes fadeScreen {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 28px;
+    padding: 40px 28px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow:
+      0 25px 60px rgba(255, 107, 157, 0.15),
+      0 8px 20px rgba(168, 130, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+  }
+  .card::before {
+    content: '';
+    position: absolute; top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at 30% 20%, rgba(255, 182, 216, 0.12), transparent 50%);
+    pointer-events: none;
+  }
+
+  h1 {
+    font-size: clamp(1.6rem, 6vw, 2.4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    font-size: clamp(1.15rem, 4.5vw, 1.6rem);
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  p { line-height: 1.65; color: var(--text-soft); }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--pink-dark) 0%, var(--purple) 50%, var(--pink) 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 4s ease infinite;
+  }
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .script {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: var(--pink-dark);
+    font-weight: 700;
+  }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.15), rgba(168, 130, 255, 0.15));
+    color: var(--pink-dark);
+    padding: 7px 16px; border-radius: 50px;
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.4px; text-transform: uppercase;
+    margin-bottom: 18px;
+    border: 1.5px solid rgba(255, 107, 157, 0.25);
+  }
+
+  .mascot-wrap {
+    position: relative; display: inline-block;
+    margin-bottom: 18px;
+  }
+  .mascot {
+    font-size: 4rem; display: inline-block;
+    animation: mascotBounce 2.4s ease-in-out infinite;
+    filter: drop-shadow(0 8px 16px rgba(255, 107, 157, 0.25));
+    transform: translateZ(0);
+  }
+  @keyframes mascotBounce {
+    0%, 100% { transform: translateY(0) rotate(-5deg) translateZ(0); }
+    50% { transform: translateY(-14px) rotate(5deg) translateZ(0); }
+  }
+  .sparkle {
+    position: absolute; font-size: 1rem;
+    animation: sparkleTwinkle 2s infinite;
+  }
+  .sparkle.s1 { top: -8px; left: -16px; animation-delay: 0s; }
+  .sparkle.s2 { top: 8px; right: -20px; animation-delay: 0.6s; }
+  .sparkle.s3 { bottom: 0px; left: -24px; animation-delay: 1.2s; }
+  @keyframes sparkleTwinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8) rotate(0); }
+    50% { opacity: 1; transform: scale(1.2) rotate(20deg); }
+  }
+
+  /* Buttons - Touch optimized */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: linear-gradient(135deg, var(--pink-dark), var(--pink));
+    color: white; border: none;
+    padding: 16px 32px;
+    font-size: 1rem; font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow:
+      0 10px 25px rgba(255, 77, 136, 0.35),
+      0 4px 10px rgba(255, 77, 136, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 6px;
+    font-family: inherit;
+    position: relative; overflow: hidden;
+    min-height: 52px;
+    /* Better touch */
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+    transform: translateZ(0);
+  }
+  .btn::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+  }
+  .btn:active::after { transform: translateX(100%); }
+  .btn:active {
+    transform: scale(0.96) translateZ(0);
+    box-shadow: 0 6px 15px rgba(255, 77, 136, 0.4);
+  }
+  @media (hover: hover) {
+    .btn:hover {
+      transform: translateY(-3px) scale(1.02) translateZ(0);
+      box-shadow: 0 15px 35px rgba(255, 77, 136, 0.5);
+    }
+  }
+
+  .btn-ghost {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--pink-dark);
+    border: 2px solid rgba(255, 107, 157, 0.3);
+    box-shadow: 0 6px 20px rgba(255, 107, 157, 0.12);
+  }
+  .btn-ghost:active {
+    background: white;
+    border-color: var(--pink);
+    transform: scale(0.96);
+  }
+
+  .btn-insta {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+    box-shadow: 0 10px 25px rgba(220, 39, 67, 0.35), 0 4px 10px rgba(220, 39, 67, 0.2);
+  }
+  .btn-insta:active {
+    transform: scale(0.96);
+    box-shadow: 0 6px 15px rgba(220, 39, 67, 0.4);
+  }
+
+  .btn-lg { padding: 18px 40px; font-size: 1.08rem; min-height: 58px; }
+
+  /* Options - Bigger touch targets */
+  .options {
+    display: flex; flex-direction: column; gap: 10px;
+    margin-top: 24px;
+  }
+  .option-btn {
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(255, 208, 224, 0.8);
+    color: var(--text);
+    padding: 16px 18px;
+    border-radius: 18px;
+    font-size: 0.96rem; font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s, border-color 0.2s;
+    text-align: left;
+    font-family: inherit;
+    display: flex; align-items: center; gap: 10px;
+    position: relative; overflow: hidden;
+    min-height: 56px;
+    line-height: 1.4;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+    transform: translateZ(0);
+  }
+  .option-btn:active {
+    background: linear-gradient(135deg, #fff5f9, #ffeaf3);
+    border-color: var(--pink);
+    transform: scale(0.98);
+    box-shadow: 0 5px 15px rgba(255, 107, 157, 0.15);
+  }
+  @media (hover: hover) {
+    .option-btn:hover {
+      background: linear-gradient(135deg, #fff5f9, #ffeaf3);
+      border-color: var(--pink);
+      transform: translateX(6px);
+      box-shadow: 0 10px 25px rgba(255, 107, 157, 0.2);
+    }
+  }
+
+  /* Progress */
+  .progress-wrap { max-width: 440px; width: 100%; margin: 0 auto 8px; }
+  .q-counter {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.82rem; font-weight: 600;
+    color: var(--pink-dark);
+    margin-bottom: 6px; padding: 0 4px;
+  }
+  .progress-bar {
+    height: 10px;
+    background: rgba(255, 208, 224, 0.5);
+    border-radius: 10px; overflow: hidden;
+    border: 1.5px solid white;
+    box-shadow: inset 0 2px 5px rgba(255, 107, 157, 0.08);
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--pink-dark), var(--purple));
+    border-radius: 10px;
+    transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+  }
+
+  /* Score */
+  .score-wrap { display: flex; justify-content: center; margin: 24px 0; }
+  .score-circle {
+    width: 155px; height: 155px; border-radius: 50%;
+    background: conic-gradient(var(--pink-dark) var(--deg, 0deg), rgba(255, 208, 224, 0.4) 0deg);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    transition: background 0.3s ease;
+    box-shadow: 0 18px 40px rgba(255, 107, 157, 0.25);
+    transform: translateZ(0);
+  }
+  .score-circle::before {
+    content: '';
+    position: absolute; inset: 12px;
+    background: white; border-radius: 50%;
+    box-shadow: inset 0 4px 15px rgba(255, 107, 157, 0.08);
+  }
+  .score-text {
+    position: relative;
+    font-size: 2.4rem; font-weight: 800;
+    background: linear-gradient(135deg, var(--pink-dark), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.03em;
+  }
+
+  /* Tags */
+  .tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    justify-content: center;
+    margin-top: 18px;
+  }
+  .tag {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.12), rgba(168, 130, 255, 0.12));
+    color: var(--pink-dark);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.78rem; font-weight: 600;
+    border: 1.5px solid rgba(255, 107, 157, 0.2);
+  }
+
+  .note {
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    opacity: 0.85;
+    margin-top: 14px;
+    font-style: italic;
+  }
+
+  /* Floating hearts */
+  .heart {
+    position: fixed; pointer-events: none;
+    animation: heartUp 4.5s linear forwards;
+    z-index: 1;
+    will-change: transform;
+  }
+  @keyframes heartUp {
+    0% { transform: translateY(100vh) scale(0.5) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-100px) scale(1.2) rotate(360deg); opacity: 0; }
+  }
+
+  /* Confetti */
+  .confetti {
+    position: fixed; top: -20px; z-index: 5;
+    pointer-events: none;
+    animation: fall 3.5s linear forwards;
+    will-change: transform;
+  }
+  @keyframes fall {
+    to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* Touch spark - only on mobile */
+  .tap-spark {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 1.2rem;
+    animation: tapSpark 0.9s ease-out forwards;
+  }
+  @keyframes tapSpark {
+    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1.8); opacity: 0; }
+  }
+
+  /* Don't press button - MOBILE OPTIMIZED */
+  #dontPressBtn {
+    position: fixed;
+    padding: 16px 30px;
+    background: linear-gradient(135deg, var(--pink-dark), var(--pink));
+    color: white; border: none;
+    border-radius: 50px;
+    font-size: 1rem; font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(255, 77, 136, 0.5);
+    z-index: 10;
+    transition: left 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+                top 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+                transform 0.15s;
+    font-family: inherit;
+    white-space: nowrap;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+    min-height: 52px;
+    transform: translateZ(0);
+  }
+  #dontPressBtn:active {
+    transform: scale(0.92);
+  }
+
+  /* Secret */
+  .secret-object {
+    position: fixed;
+    font-size: 1.3rem;
+    opacity: 0.5;
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.3s, opacity 0.3s;
+    user-select: none;
+    animation: secretPulse 2.5s infinite;
+    padding: 12px;
+    /* Bigger tap target */
+    transform: translateZ(0);
+  }
+  @keyframes secretPulse {
+    0%, 100% { transform: scale(1) translateZ(0); opacity: 0.5; }
+    50% { transform: scale(1.15) translateZ(0); opacity: 0.75; }
+  }
+  .secret-object:active {
+    opacity: 1;
+    transform: scale(1.5) rotate(20deg) translateZ(0);
+  }
+
+  .secret-toast {
+    position: fixed;
+    bottom: calc(25px + env(safe-area-inset-bottom));
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--pink-dark), var(--purple));
+    color: white;
+    padding: 14px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    z-index: 9999;
+    box-shadow: 0 15px 40px rgba(255, 107, 157, 0.5);
+    animation: toastIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex; align-items: center; gap: 8px;
+    max-width: calc(100vw - 30px);
+    text-align: center;
+    justify-content: center;
+  }
+  @keyframes toastIn {
+    from { transform: translate(-50%, 60px); opacity: 0; }
+    to { transform: translate(-50%, 0); opacity: 1; }
+  }
+
+  /* Final */
+  .final-card {
+    border: 2.5px solid rgba(255, 77, 136, 0.4);
+    box-shadow:
+      0 25px 60px rgba(255, 77, 136, 0.25),
+      0 0 50px rgba(255, 107, 157, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+  .glow-text { animation: glowText 2s infinite alternate; }
+  @keyframes glowText {
+    from { text-shadow: 0 0 12px rgba(255, 107, 157, 0.4); }
+    to { text-shadow: 0 0 25px rgba(255, 77, 136, 0.7), 0 0 40px rgba(255, 107, 157, 0.35); }
+  }
+
+  .pills {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .pill {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1.5px solid rgba(255, 107, 157, 0.25);
+    color: var(--text);
+    padding: 7px 14px;
+    border-radius: 50px;
+    font-size: 0.8rem; font-weight: 600;
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+
+  /* MODAL - MOBILE OPTIMIZED */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(74, 31, 61, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    padding-top: calc(16px + env(safe-area-inset-top));
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+    animation: fadeScreen 0.3s ease;
+    overscroll-behavior: contain;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal-content {
+    background: white;
+    border-radius: 26px;
+    padding: 28px 20px;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(255, 77, 136, 0.35);
+    animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    max-height: 92vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.85) translateY(30px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  .modal-close {
+    position: absolute;
+    top: 12px; right: 14px;
+    background: rgba(255, 107, 157, 0.12);
+    border: none;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: var(--pink-dark);
+    font-weight: 700;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .modal-close:active {
+    background: rgba(255, 107, 157, 0.25);
+    transform: scale(0.9);
+  }
+  .modal-content h3 {
+    font-size: 1.2rem; margin-bottom: 6px;
+    background: linear-gradient(135deg, var(--pink-dark), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+  }
+  .modal-content > p {
+    font-size: 0.88rem;
+    margin-bottom: 16px;
+    color: var(--text-soft);
+  }
+
+  #sharePreviewCanvas {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(255, 107, 157, 0.25);
+    margin-bottom: 16px;
+    border: 2px solid rgba(255, 107, 157, 0.15);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .share-actions {
+    display: flex; flex-wrap: wrap;
+    gap: 8px; justify-content: center;
+    margin-top: 10px;
+  }
+  .share-action-btn {
+    flex: 1 1 auto;
+    min-width: 130px;
+    padding: 14px 18px;
+    border-radius: 50px;
+    border: none; cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.92rem;
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    gap: 6px;
+    transition: transform 0.15s, box-shadow 0.2s;
+    min-height: 50px;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .share-action-btn:active { transform: scale(0.96); }
+
+  .share-action-btn.download {
+    background: linear-gradient(135deg, var(--pink-dark), var(--pink));
+    color: white;
+    box-shadow: 0 8px 20px rgba(255, 77, 136, 0.35);
+  }
+  .share-action-btn.ig {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+    box-shadow: 0 8px 20px rgba(220, 39, 67, 0.35);
+  }
+  .share-action-btn.native {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--pink-dark);
+    border: 2px solid rgba(255, 107, 157, 0.3);
+  }
+
+  .share-hint {
+    font-size: 0.78rem;
+    color: var(--text-soft);
+    opacity: 0.85;
+    margin-top: 14px;
+    line-height: 1.55;
+    padding: 12px 14px;
+    background: rgba(255, 107, 157, 0.06);
+    border-radius: 14px;
+    border: 1px dashed rgba(255, 107, 157, 0.3);
+    text-align: left;
+  }
+
+  /* MOBILE SPECIFIC */
+  @media (max-width: 640px) {
+    .navbar { padding: 12px 14px; }
+    .logo { font-size: 0.92rem; }
+    .logo-emoji { font-size: 1.25rem; }
+    .click-badge { padding: 6px 12px; font-size: 0.72rem; }
+    .screen {
+      padding: 80px 14px 40px;
+      padding-top: calc(80px + env(safe-area-inset-top));
+      padding-bottom: calc(40px + env(safe-area-inset-bottom));
+    }
+    .card { padding: 32px 20px; border-radius: 24px; }
+    .mascot { font-size: 3.4rem; }
+    .score-circle { width: 140px; height: 140px; }
+    .score-text { font-size: 2.1rem; }
+    .btn { padding: 14px 26px; font-size: 0.95rem; min-height: 50px; }
+    .btn-lg { padding: 16px 32px; font-size: 1rem; min-height: 54px; }
+    .option-btn { padding: 14px 16px; font-size: 0.9rem; }
+    .script { font-size: 1.3rem; }
+    .modal-content { padding: 24px 16px; border-radius: 22px; }
+    .share-action-btn { min-width: 100%; }
+    .card { padding: 28px 18px; }
+    h1 { font-size: clamp(1.5rem, 7vw, 2.1rem); }
+    h2 { font-size: clamp(1.1rem, 5vw, 1.5rem); }
+    p { font-size: 0.95rem; }
+  }
+
+  /* Very small phones */
+  @media (max-width: 360px) {
+    .card { padding: 24px 14px; }
+    .mascot { font-size: 3rem; }
+    h1 { font-size: 1.4rem; }
+    .btn { padding: 13px 22px; font-size: 0.9rem; }
+  }
+
+  /* Landscape phones */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .screen {
+      padding: 70px 20px 30px;
+      align-items: flex-start;
+    }
+    .card { padding: 24px 20px; }
+    .mascot { font-size: 2.5rem; }
+    .score-circle { width: 110px; height: 110px; }
+    .score-text { font-size: 1.8rem; }
+  }
+
+  /* Disable heavy animations on low-end devices */
+  @media (prefers-reduced-motion: reduce), (update: slow) {
+    .blob { animation: none; }
+    .mascot { animation: none; }
+  }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--pink-light); }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    border-radius: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-blobs">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+  <div class="blob blob4"></div>
+</div>
+
+<canvas id="particles"></canvas>
+
+<div class="navbar">
+  <div class="logo">
+    <span class="logo-emoji">🦒</span>
+    <span>Baby Giraffe</span>
+  </div>
+  <div class="click-badge">👆 <span id="clickCount">0</span></div>
+</div>
+
+<!-- ============ HOME ============ -->
+<div class="screen active" id="home">
+  <div class="card">
+    <div class="mascot-wrap">
+      <span class="sparkle s1">✨</span>
+      <span class="sparkle s2">💫</span>
+      <span class="sparkle s3">🌸</span>
+      <span class="mascot">🦒</span>
+    </div>
+    <div class="badge">✨ Special Website ✨</div>
+    <h1>Hi <span class="gradient-text">Baby Giraffe</span> 🌸</h1>
+    <p style="font-size: 1rem; margin-top: 10px;">
+      Yeh website sirf tumhare liye bani hai. 💕<br>
+      Ek <b style="color: var(--pink-dark);">K-Drama Love Test</b> hai… aur thodi si crazy stuff bhi 😏
+    </p>
+    <div class="pills">
+      <span class="pill">💘 Compatibility</span>
+      <span class="pill">🎬 K-Drama Quiz</span>
+      <span class="pill">📸 Insta Share</span>
+    </div>
+    <button class="btn btn-lg" onclick="startQuiz()" style="margin-top: 26px;">
+      Chalo Shuru Karein 💫
+    </button>
+    <p class="note">Psst… 10 sawal hain. Honest rehna! 😌</p>
+  </div>
+</div>
+
+<!-- ============ QUIZ ============ -->
+<div class="screen" id="quiz">
+  <div style="max-width: 600px; width: 100%;">
+    <div class="progress-wrap">
+      <div class="q-counter">
+        <span>🎬 Sawal <span id="qNum">1</span> / 10</span>
+        <span id="qPercent">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="qProgress" style="width: 0%;"></div>
+      </div>
+    </div>
+    <div class="card" style="margin-top: 18px;">
+      <h2 id="qText" style="font-size: 1.15rem;">Loading…</h2>
+      <div class="options" id="qOptions"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ RESULT ============ -->
+<div class="screen" id="result">
+  <div class="card">
+    <div class="mascot-wrap">
+      <span class="sparkle s1">✨</span>
+      <span class="sparkle s2">💖</span>
+      <span class="sparkle s3">🌟</span>
+      <span class="mascot" id="resultEmoji">🦒</span>
+    </div>
+    <div class="badge">💘 Compatibility Result 💘</div>
+    <h2 style="font-size: 1.2rem;">Tumhari K-Drama Vibe hai…</h2>
+    <div class="score-wrap">
+      <div class="score-circle" id="scoreCircle">
+        <div class="score-text" id="scoreText">0%</div>
+      </div>
+    </div>
+    <h3 id="resultVibe" class="script" style="margin: 8px 0 12px;"></h3>
+    <p id="resultMsg" style="font-size: 0.96rem;"></p>
+    <p class="note" id="resultNote"></p>
+    <div class="tags" id="resultTags"></div>
+
+    <div style="margin-top: 24px;">
+      <button class="btn btn-insta" onclick="openShareModal()">
+        📸 Share on Instagram
+      </button>
+      <button class="btn btn-ghost" onclick="startDontPress()">
+        Ek chhota surprise 🎁
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ DON'T PRESS ============ -->
+<div class="screen" id="dontPressScreen">
+  <div class="card">
+    <div class="mascot-wrap">
+      <span class="sparkle s1">👀</span>
+      <span class="sparkle s2">✨</span>
+      <span class="mascot">🫣</span>
+    </div>
+    <h1 class="gradient-text">Ek button hai…</h1>
+    <p style="margin-top: 14px; font-size: 1rem;">
+      Ise <b style="color: var(--pink-dark);">press mat karna</b>, Baby Giraffe. 🦒<br>
+      Seriously. Bilkul mat karna.
+    </p>
+    <p class="note">(Dhundhne ki koshish karo 👀)</p>
+  </div>
+</div>
+<button id="dontPressBtn" style="display: none;" onclick="caughtYou()">Don't Press 🚫</button>
+
+<!-- ============ CAUGHT ============ -->
+<div class="screen" id="caughtScreen">
+  <div class="card">
+    <div class="mascot-wrap">
+      <span class="sparkle s1">🎉</span>
+      <span class="sparkle s2">😂</span>
+      <span class="sparkle s3">💕</span>
+      <span class="mascot">😂</span>
+    </div>
+    <div class="badge">🎉 You did it! 🎉</div>
+    <h1 class="gradient-text">FINALLY!</h1>
+    <p style="margin-top: 14px; font-size: 1.05rem;">
+      Baby Giraffe, tumne mujhe pakad liya! 🎉
+    </p>
+    <p style="margin-top: 10px; opacity: 0.8; font-size: 0.95rem;">
+      Kitni der lagayi yaar… 😭 But I'm proud of you! 💕
+    </p>
+    <button class="btn btn-lg" onclick="startFinal()" style="margin-top: 24px;">
+      Final Surprise 🎁
+    </button>
+  </div>
+</div>
+
+<!-- ============ FINAL ============ -->
+<div class="screen" id="final">
+  <div class="card final-card">
+    <div class="mascot-wrap">
+      <span class="sparkle s1">✨</span>
+      <span class="sparkle s2">💖</span>
+      <span class="sparkle s3">🎀</span>
+      <span class="mascot">🎀</span>
+    </div>
+    <div class="badge">✨ One Last Thing ✨</div>
+    <h1 class="glow-text gradient-text">Dear Baby Giraffe 🦒</h1>
+    <p style="margin-top: 18px; font-size: 1rem; line-height: 1.85;">
+      Tum bahut cute ho. Bahut funny ho. Aur thodi si crazy bhi. 😌<br><br>
+      Yeh website sirf isliye banayi…
+    </p>
+    <p class="script" style="margin-top: 12px; font-size: 1.55rem;">
+      taaki tum smile karo. ❤️
+    </p>
+    <p style="margin-top: 18px; font-size: 0.95rem; opacity: 0.85;">
+      Agar tum abhi tak smile kar rahi ho…<br>
+      toh mission accomplished. 🎉
+    </p>
+    <div style="margin-top: 26px;">
+      <button class="btn btn-insta" onclick="openShareModal()">📸 Share on Instagram</button>
+      <button class="btn" onclick="moreConfetti()">🎉 Confetti!</button>
+      <button class="btn btn-ghost" onclick="location.reload()">🔁 Phir Se</button>
+    </div>
+    <p style="margin-top: 24px; font-size: 1.2rem; letter-spacing: 3px;">
+      🦒 💖 🌸 ✨ 💫 🎀 💕
+    </p>
+  </div>
+</div>
+
+<div class="secret-object" id="secretObj" style="top: 15%; left: 4%;" onclick="foundSecret()">🌸</div>
+
+<!-- SHARE MODAL -->
+<div class="modal-overlay" id="shareModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeShareModal()">✕</button>
+    <h3>📸 Share Your Result!</h3>
+    <p>Tumhara result card ready hai. Download karo aur Instagram story pe daalo! 💕</p>
+    <canvas id="sharePreviewCanvas" width="540" height="960"></canvas>
+    <div class="share-actions">
+      <button class="share-action-btn download" onclick="downloadShareImage()">⬇️ Download</button>
+      <button class="share-action-btn ig" onclick="shareToInstagram()">📸 Instagram</button>
+      <button class="share-action-btn native" id="nativeShareBtn" onclick="nativeShare()" style="display: none;">🔗 Share</button>
+    </div>
+    <div class="share-hint">
+      <b>💡 Instagram tip:</b><br>
+      <b>1.</b> Image download karo ⬇️<br>
+      <b>2.</b> Instagram app kholo 📱<br>
+      <b>3.</b> Story → Gallery → Image select 🖼️<br>
+      <b>4.</b> Post karo! 🎉
+    </div>
+  </div>
+</div>
+
+<script>
+// ==================== DEVICE DETECTION ====================
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                 window.matchMedia('(pointer: coarse)').matches;
+const isLowEnd = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+
+// ==================== PARTICLES (Optimized for mobile) ====================
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let particles = [];
+function resize() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2); // cap DPR for performance
+  canvas.width = innerWidth * dpr;
+  canvas.height = innerHeight * dpr;
+  canvas.style.width = innerWidth + 'px';
+  canvas.style.height = innerHeight + 'px';
+  ctx.scale(dpr, dpr);
+}
+resize();
+addEventListener('resize', () => { ctx.setTransform(1, 0, 0, 1, 0, 0); resize(); });
+
+const pinkColors = ['#ffb8d0', '#ff9ac4', '#ffd0e0', '#ffdce8', '#ffe0ec', '#e0d4ff'];
+const particleCount = isLowEnd ? 15 : (isMobile ? 25 : 45);
+for (let i = 0; i < particleCount; i++) {
+  particles.push({
+    x: Math.random() * innerWidth,
+    y: Math.random() * innerHeight,
+    r: Math.random() * 2.5 + 0.8,
+    dx: (Math.random() - 0.5) * 0.4,
+    dy: (Math.random() - 0.5) * 0.4,
+    a: Math.random() * 0.5 + 0.3,
+    c: pinkColors[Math.floor(Math.random() * pinkColors.length)]
+  });
+}
+function drawParticles() {
+  ctx.clearRect(0, 0, innerWidth, innerHeight);
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = p.c;
+    ctx.globalAlpha = p.a;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    p.x += p.dx; p.y += p.dy;
+    if (p.x < 0 || p.x > innerWidth) p.dx *= -1;
+    if (p.y < 0 || p.y > innerHeight) p.dy *= -1;
+  });
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
+
+// ==================== CLICK / TAP HANDLER ====================
+let globalClicks = 0;
+const clickCount = document.getElementById('clickCount');
+const cuteEmojis = ['💖', '🦒', '🌸', '✨', '💕', '🎀', '💫', '🌷'];
+
+function handleTap(x, y) {
+  globalClicks++;
+  clickCount.textContent = globalClicks;
+
+  const burstCount = isLowEnd ? 4 : 8;
+  for (let i = 0; i < burstCount; i++) {
+    const b = document.createElement('div');
+    b.className = 'tap-spark';
+    b.textContent = cuteEmojis[Math.floor(Math.random() * cuteEmojis.length)];
+    b.style.left = x + 'px';
+    b.style.top = y + 'px';
+    const angle = (Math.PI * 2 * i) / burstCount + Math.random() * 0.5;
+    const dist = Math.random() * 60 + 20;
+    b.style.setProperty('--tx', Math.cos(angle) * dist + 'px');
+    b.style.setProperty('--ty', Math.sin(angle) * dist + 'px');
+    // Use transform-based animation via inline
+    b.style.animation = 'none';
+    b.offsetHeight;
+    b.style.animation = `tapSpark 0.9s ease-out forwards`;
+    b.style.transform = `translate(-50%, -50%)`;
+    document.body.appendChild(b);
+    setTimeout(() => b.remove(), 900);
+  }
+}
+
+// Unified tap/click handling
+document.addEventListener('click', (e) => {
+  // Skip if clicking on interactive elements to avoid double bursts
+  handleTap(e.clientX, e.clientY);
+}, { passive: true });
+
+// ==================== CURSOR TRAIL (Desktop only) ====================
+if (!isMobile) {
+  let lastTrail = 0;
+  const trailEmojis = ['✨', '💖', '🌸', '⭐', '🦒', '💫'];
+  document.addEventListener('mousemove', (e) => {
+    const now = Date.now();
+    if (now - lastTrail < 100) return;
+    lastTrail = now;
+    const t = document.createElement('div');
+    t.style.cssText = `position:fixed;pointer-events:none;z-index:9998;font-size:1rem;left:${e.clientX - 8}px;top:${e.clientY - 8}px;animation:trailFade 0.9s forwards;`;
+    t.textContent = trailEmojis[Math.floor(Math.random() * trailEmojis.length)];
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 900);
+  }, { passive: true });
+
+  // Add trailFade keyframes dynamically (only desktop)
+  const style = document.createElement('style');
+  style.textContent = `@keyframes trailFade { to { transform: translateY(-40px) scale(0.3) rotate(180deg); opacity: 0; } }`;
+  document.head.appendChild(style);
+}
+
+// ==================== HAPTIC FEEDBACK (Mobile) ====================
+function vibrate(ms = 15) {
+  if (isMobile && navigator.vibrate) {
+    try { navigator.vibrate(ms); } catch (e) {}
+  }
+}
+
+// ==================== NAV ====================
+function goTo(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  vibrate(10);
+}
+
+// ==================== HEARTS / CONFETTI ====================
+function burstHearts(count = 10) {
+  if (isLowEnd) count = Math.min(count, 6);
+  const emojis = ['💖', '💕', '🌸', '✨', '💗', '🌷', '🦒', '🎀'];
+  for (let i = 0; i < count; i++) {
+    setTimeout(() => {
+      const h = document.createElement('div');
+      h.className = 'heart';
+      h.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      h.style.left = Math.random() * 100 + 'vw';
+      h.style.fontSize = (Math.random() * 16 + 16) + 'px';
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 4500);
+    }, i * 100);
+  }
+}
+
+function moreConfetti() {
+  const count = isLowEnd ? 50 : 120;
+  const colors = ['#ff6b9d', '#ffb8d0', '#ffd700', '#a882ff', '#ffffff', '#ffa6c9', '#ffe0ec'];
+  const emojis = ['💖', '🌸', '✨', '🦒', '🎀', '💕'];
+  for (let i = 0; i < count; i++) {
+    setTimeout(() => {
+      const c = document.createElement('div');
+      c.className = 'confetti';
+      if (Math.random() > 0.5) {
+        c.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        c.style.fontSize = '1.2rem';
+      } else {
+        c.style.background = colors[Math.floor(Math.random() * colors.length)];
+        c.style.width = (Math.random() * 7 + 6) + 'px';
+        c.style.height = c.style.width;
+        c.style.borderRadius = Math.random() > 0.5 ? '50%' : '3px';
+      }
+      c.style.left = Math.random() * 100 + 'vw';
+      c.style.animationDuration = (Math.random() * 2 + 3) + 's';
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 5000);
+    }, i * 20);
+  }
+  vibrate([10, 30, 10]);
+}
+
+// ==================== QUIZ ====================
+const quizQuestions = [
+  { q: "🌸 K-Drama dekhne ka tumhara favourite time?",
+    opts: ["🌙 Raat ko bina kisi disturbance ke", "☀️ Din mein, kaam ke beech shortcut ke liye", "🌧️ Baarish mein, blanket ke andar", "🍿 Weekend marathon — ek hi baar mein poori"] },
+  { q: "💘 Tumhara dream K-Drama male lead kaun sa type hai?",
+    opts: ["🧊 Cold outside, soft inside (tsundere)", "😂 Funny aur clingy cutie", "🖤 Bad boy with golden heart", "👑 Rich chaebol jo simple ladki se pyaar kare"] },
+  { q: "🎬 Favourite K-Drama genre?",
+    opts: ["💕 Romantic comedy", "😭 Emotional tearjerker", "🔍 Thriller + romance mix", "🏯 Historical / Sageuk"] },
+  { q: "☕ K-Drama dekhne ke saath kya chahiye?",
+    opts: ["🍜 Instant ramen ya noodles", "🍫 Chocolate / sweets", "🧋 Bubble tea", "🍿 Chips aur cold drink"] },
+  { q: "😭 Jab sad scene aata hai, tum kya karti ho?",
+    opts: ["Full on ro deti ho, tissue box khatam", "Aankhein nam hoti hain par control karti ho", "Skip kar deti ho — dil weak hai", "Rewind karke phir dekhti ho (why? 😭)"] },
+  { q: "🎧 K-Drama OST sunte waqt tumhara mood?",
+    opts: ["✨ Emotional aur dreamy", "💕 Romantic feel", "😌 Relaxed aur peaceful", "🎤 Full volume pe gaana gaati ho"] },
+  { q: "💭 Ek perfect K-Drama scene kaisa hoga?",
+    opts: ["☔ Baarish mein umbrella share karna", "🤝 Haath pakadna pehli baar", "🌃 Rooftop pe confession", "🍽️ Street food date at night"] },
+  { q: "🎭 Tum khud K-Drama mein kaun si character hoti?",
+    opts: ["🌸 Sweet, innocent heroine", "😎 Strong, independent female lead", "😂 Funny best friend (comic relief)", "😈 Mysterious second lead"] },
+  { q: "📱 Ek K-Drama complete karne ke baad tum kya karti ho?",
+    opts: ["🤯 2 din tak us duniya se bahar nahi aati", "🔍 Actor ke baare mein Google karti ho", "📝 Next K-Drama list ready karti ho", "😭 Ro deti ho kyunki khatam ho gaya"] },
+  { q: "🦒 Baby Giraffe ke liye ek K-Drama title choose karo:",
+    opts: ["💕 'My Cute Giraffe'", "😂 'The Chaotic Life of Giraffe'", "✨ 'Destined to Smile'", "🌙 'Moonlight Giraffe'"] }
+];
+
+const kDramaVibes = [
+  { vibe: "Soft Rom-Com Heroine 🌸", msg: "Tum ek classic K-Drama heroine ho — sweet, warm, aur thodi si clumsy. Log tumse instantly pyaar kar lete hain. Tumhare paas woh cute charm hai jo screen se bhi zyada shine karta hai! ✨", emoji: "🌸", tags: ["#SoftVibes", "#RomComQueen", "#Cute"], range: [92, 99] },
+  { vibe: "Chaotic Comedy Lead 😂", msg: "Tum woh character ho jo har scene mein chaos laata hai — but in the best way! Tum funny ho, unpredictable ho, aur tumhare bina K-Drama boring hota. Baby Giraffe, tum ek entertainment package ho! 🎁", emoji: "😂", tags: ["#ChaosQueen", "#ComicRelief", "#Funny"], range: [90, 98] },
+  { vibe: "Mysterious Second Lead 🌙", msg: "Tum woh mysterious vibe rakhti ho jo sabko confuse karti hai. Log tumhe samajh nahi paate, par attract hote hain. Tumhare paas ek quiet depth hai — aur wahi tumhari sabse badi beauty hai. ✨", emoji: "🌙", tags: ["#Mysterious", "#DeepSoul", "#Elegant"], range: [94, 99] },
+  { vibe: "Strong Female Lead 👑", msg: "Tum independent, strong aur powerful ho. Tumhe kisi hero ki zarurat nahi — tum khud apni story ki lead ho. Aur jo tumhare saath aayega, woh lucky hoga. 💪", emoji: "👑", tags: ["#Independent", "#BossLady", "#Queen"], range: [95, 99] },
+  { vibe: "Hopeless Romantic 💕", msg: "Tum poore dil se pyaar karti ho. Chhoti chhoti cheezon mein romance dhundh leti ho. Tumhare liye har din ek nayi love story hai. Baby Giraffe, tumhara dil bahut bada hai. ❤️", emoji: "💕", tags: ["#Romantic", "#SoftHeart", "#Dreamy"], range: [93, 100] },
+  { vibe: "Dreamy Fairy ✨", msg: "Tum ek sapno ki duniya mein rehti ho — jahan sab kuch perfect hai. Tumhari imagination bahut beautiful hai. Log tumse inspired hote hain, chahe tumhe pata na ho. 🌌", emoji: "✨", tags: ["#Dreamer", "#FairyVibes", "#Magical"], range: [91, 98] },
+  { vibe: "Cute Chaos Giraffe 🦒", msg: "Tum ek perfect mix ho — cute, funny, crazy, aur thodi si confused. Bilkul Baby Giraffe ki tarah! Tum jahan jaati ho, wahan smile leke jaati ho. Aur tumhari craziness sabki favourite hai. 💕", emoji: "🦒", tags: ["#BabyGiraffe", "#PerfectMix", "#Unique"], range: [96, 100] }
+];
+
+let qIndex = 0;
+let userAnswers = [];
+let lastResult = null;
+
+function startQuiz() {
+  qIndex = 0;
+  userAnswers = [];
+  goTo('quiz');
+  showQuestion();
+}
+
+function showQuestion() {
+  if (qIndex >= quizQuestions.length) { showResult(); return; }
+  const q = quizQuestions[qIndex];
+  document.getElementById('qNum').textContent = qIndex + 1;
+  const percent = Math.round((qIndex / quizQuestions.length) * 100);
+  document.getElementById('qProgress').style.width = percent + '%';
+  document.getElementById('qPercent').textContent = percent + '%';
+  document.getElementById('qText').textContent = q.q;
+  const opts = document.getElementById('qOptions');
+  opts.innerHTML = '';
+  q.opts.forEach(o => {
+    const b = document.createElement('button');
+    b.className = 'option-btn';
+    b.textContent = o;
+    b.onclick = () => {
+      userAnswers.push(o);
+      qIndex++;
+      vibrate(15);
+      burstHearts(3);
+      showQuestion();
+    };
+    opts.appendChild(b);
+  });
+}
+
+function showResult() {
+  let vibe;
+  if (userAnswers[9] && userAnswers[9].includes('Cute Giraffe')) vibe = kDramaVibes[6];
+  else if (userAnswers[9] && userAnswers[9].includes('Chaotic')) vibe = kDramaVibes[1];
+  else vibe = kDramaVibes[Math.floor(Math.random() * kDramaVibes.length)];
+  const score = Math.floor(Math.random() * (vibe.range[1] - vibe.range[0] + 1)) + vibe.range[0];
+
+  lastResult = { vibe, score };
+
+  document.getElementById('resultEmoji').textContent = vibe.emoji;
+  document.getElementById('resultVibe').textContent = vibe.vibe;
+  document.getElementById('resultMsg').textContent = vibe.msg;
+  document.getElementById('resultNote').textContent = score >= 96
+    ? "Baaki " + (100 - score) + "% tumhari marzi hai 😭"
+    : "Ye result scientific hai, trust me 😌";
+
+  const tagsEl = document.getElementById('resultTags');
+  tagsEl.innerHTML = '';
+  vibe.tags.forEach(t => {
+    const s = document.createElement('span');
+    s.className = 'tag';
+    s.textContent = t;
+    tagsEl.appendChild(s);
+  });
+
+  goTo('result');
+
+  const circle = document.getElementById('scoreCircle');
+  const scoreText = document.getElementById('scoreText');
+  let current = 0;
+  const interval = setInterval(() => {
+    current += 2;
+    if (current >= score) { current = score; clearInterval(interval); }
+    scoreText.textContent = current + '%';
+    circle.style.setProperty('--deg', (current * 3.6) + 'deg');
+  }, 30);
+  burstHearts(20);
+  vibrate([20, 40, 20]);
+}
+
+// ==================== DON'T PRESS (MOBILE OPTIMIZED) ====================
+let dontPressMoves = 0;
+let caught = false;
+let moveIntervalId = null;
+let lastMoveTime = 0;
+
+function startDontPress() {
+  goTo('dontPressScreen');
+  const btn = document.getElementById('dontPressBtn');
+  btn.style.display = 'block';
+  dontPressMoves = 0;
+  caught = false;
+
+  // Place button initially at a random spot
+  moveBtn(true);
+
+  if (moveIntervalId) clearInterval(moveIntervalId);
+
+  // On mobile: moves slower & fewer times
+  const moveDelay = isMobile ? 1500 : 1200;
+  const maxMoves = isMobile ? 5 : 8;
+
+  moveIntervalId = setInterval(() => {
+    if (caught) { clearInterval(moveIntervalId); return; }
+    if (dontPressMoves >= maxMoves) {
+      clearInterval(moveIntervalId);
+      return;
+    }
+    moveBtn();
+  }, moveDelay);
+}
+
+function moveBtn(instant = false) {
+  const btn = document.getElementById('dontPressBtn');
+  if (caught) return;
+  const bw = btn.offsetWidth || 180;
+  const bh = btn.offsetHeight || 55;
+
+  // Safe area margin
+  const margin = isMobile ? 20 : 30;
+  const maxX = window.innerWidth - bw - margin;
+  const maxY = window.innerHeight - bh - margin;
+
+  const x = Math.max(margin, Math.random() * maxX);
+  const y = Math.max(margin + 60, Math.random() * (maxY - 60)); // avoid navbar
+
+  if (instant) {
+    btn.style.transition = 'none';
+    btn.style.left = x + 'px';
+    btn.style.top = y + 'px';
+    setTimeout(() => { btn.style.transition = ''; }, 50);
+  } else {
+    btn.style.left = x + 'px';
+    btn.style.top = y + 'px';
+  }
+  dontPressMoves++;
+}
+
+function caughtYou() {
+  caught = true;
+  if (moveIntervalId) clearInterval(moveIntervalId);
+  document.getElementById('dontPressBtn').style.display = 'none';
+  goTo('caughtScreen');
+  vibrate([30, 50, 30, 50, 30]);
+  burstHearts(25);
+  moreConfetti();
+}
+
+// ==================== FINAL ====================
+function startFinal() {
+  goTo('final');
+  setTimeout(moreConfetti, 200);
+}
+
+// ==================== SECRET ====================
+let secretsFound = 0;
+function foundSecret() {
+  secretsFound++;
+  vibrate(20);
+  const toast = document.createElement('div');
+  toast.className = 'secret-toast';
+  const msgs = [
+    '🌸 Secret found! Curiosity: Cute 😌',
+    '✨ Tum toh detective nikli! 🔍',
+    '👀 Officially too curious 😂❤️',
+    '💖 Baby Giraffe secret unlocked! 🦒'
+  ];
+  toast.textContent = msgs[Math.min(secretsFound - 1, msgs.length - 1)];
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 2500);
+  burstHearts(12);
+
+  const so = document.getElementById('secretObj');
+  so.style.top = (Math.random() * 70 + 10) + '%';
+  so.style.left = (Math.random() * 80 + 5) + '%';
+
+  if (secretsFound === 4) {
+    so.style.display = 'none';
+    setTimeout(() => {
+      const toast2 = document.createElement('div');
+      toast2.className = 'secret-toast';
+      toast2.textContent = '🎉 Saare secrets mil gaye! Respect 🫡💕';
+      document.body.appendChild(toast2);
+      setTimeout(() => toast2.remove(), 3500);
+      moreConfetti();
+    }, 2600);
+  }
+}
+
+// ==================== SHARE ====================
+function openShareModal() {
+  if (!lastResult) return;
+  vibrate(15);
+  drawShareCanvas();
+  document.getElementById('shareModal').classList.add('active');
+
+  if (navigator.share && navigator.canShare) {
+    const testCanvas = document.getElementById('sharePreviewCanvas');
+    testCanvas.toBlob(blob => {
+      const file = new File([blob], 'baby-giraffe.png', { type: 'image/png' });
+      if (navigator.canShare({ files: [file] })) {
+        document.getElementById('nativeShareBtn').style.display = 'inline-flex';
+      }
+    });
+  }
+}
+
+function closeShareModal() {
+  document.getElementById('shareModal').classList.remove('active');
+}
+
+function drawShareCanvas() {
+  const c = document.getElementById('sharePreviewCanvas');
+  const g = c.getContext('2d');
+  const W = c.width, H = c.height;
+
+  const bg = g.createLinearGradient(0, 0, W, H);
+  bg.addColorStop(0, '#fff0f6');
+  bg.addColorStop(0.5, '#ffe0f0');
+  bg.addColorStop(1, '#f0e0ff');
+  g.fillStyle = bg;
+  g.fillRect(0, 0, W, H);
+
+  const blobs = [
+    { x: 100, y: 120, r: 140, c: 'rgba(255,184,208,0.5)' },
+    { x: W - 80, y: H - 180, r: 180, c: 'rgba(212,196,255,0.5)' },
+    { x: W - 100, y: 200, r: 120, c: 'rgba(255,224,236,0.6)' },
+    { x: 80, y: H - 250, r: 130, c: 'rgba(200,232,255,0.5)' }
+  ];
+  blobs.forEach(b => {
+    const rg = g.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
+    rg.addColorStop(0, b.c);
+    rg.addColorStop(1, 'rgba(255,255,255,0)');
+    g.fillStyle = rg;
+    g.fillRect(b.x - b.r, b.y - b.r, b.r * 2, b.r * 2);
+  });
+
+  const decorEmojis = ['✨', '💖', '🌸', '⭐', '💫', '🌷'];
+  g.font = '28px serif';
+  g.globalAlpha = 0.7;
+  for (let i = 0; i < 14; i++) {
+    g.fillText(decorEmojis[i % decorEmojis.length], Math.random() * W, Math.random() * H);
+  }
+  g.globalAlpha = 1;
+
+  g.fillStyle = 'rgba(255,255,255,0.85)';
+  roundRect(g, W/2 - 130, 60, 260, 44, 22);
+  g.fill();
+  g.strokeStyle = 'rgba(255,107,157,0.3)';
+  g.lineWidth = 2;
+  roundRect(g, W/2 - 130, 60, 260, 44, 22);
+  g.stroke();
+  g.fillStyle = '#ff4d88';
+  g.font = 'bold 15px Poppins, sans-serif';
+  g.textAlign = 'center';
+  g.fillText('💘 K-DRAMA LOVE TEST', W/2, 88);
+
+  g.font = '110px serif';
+  g.fillText('🦒', W/2, 240);
+
+  g.font = '32px serif';
+  g.fillText('✨', W/2 - 100, 180);
+  g.fillText('💫', W/2 + 80, 180);
+  g.fillText('🌸', W/2 - 120, 250);
+  g.fillText('⭐', W/2 + 110, 240);
+
+  g.font = '70px serif';
+  g.fillText(lastResult.vibe.emoji, W/2, 370);
+
+  const cx = W/2, cy = 520, rad = 90;
+  g.beginPath();
+  g.arc(cx, cy, rad, 0, Math.PI * 2);
+  g.fillStyle = 'white';
+  g.fill();
+  g.strokeStyle = 'rgba(255,208,224,0.7)';
+  g.lineWidth = 14;
+  g.stroke();
+  g.beginPath();
+  g.arc(cx, cy, rad, -Math.PI/2, -Math.PI/2 + (Math.PI * 2 * lastResult.score / 100));
+  g.strokeStyle = '#ff4d88';
+  g.lineWidth = 14;
+  g.lineCap = 'round';
+  g.stroke();
+  g.fillStyle = '#ff4d88';
+  g.font = 'bold 62px Poppins, sans-serif';
+  g.textAlign = 'center';
+  g.textBaseline = 'middle';
+  g.fillText(lastResult.score + '%', cx, cy + 5);
+  g.textBaseline = 'alphabetic';
+
+  g.fillStyle = '#4a1f3d';
+  g.font = 'bold 28px Poppins, sans-serif';
+  g.textAlign = 'center';
+  wrapText(g, lastResult.vibe.vibe, W/2, 680, W - 80, 34);
+
+  let tagY = 730;
+  g.font = 'bold 16px Poppins, sans-serif';
+  g.fillStyle = '#ff4d88';
+  g.fillText(lastResult.vibe.tags.join('  '), W/2, tagY);
+
+  g.strokeStyle = 'rgba(255,107,157,0.3)';
+  g.lineWidth = 2;
+  g.beginPath();
+  g.moveTo(80, 780);
+  g.lineTo(W - 80, 780);
+  g.stroke();
+
+  g.fillStyle = '#7a4f66';
+  g.font = 'italic 18px Georgia, serif';
+  g.fillText('"Yeh result sirf tumhare liye hai 🦒💕"', W/2, 820);
+
+  g.fillStyle = 'rgba(255,77,136,0.9)';
+  g.font = 'bold 22px Poppins, sans-serif';
+  g.fillText('Baby Giraffe 🦒', W/2, 880);
+  g.font = '14px Poppins, sans-serif';
+  g.fillStyle = 'rgba(122,79,102,0.75)';
+  g.fillText('Take this test too! 💕', W/2, 910);
+
+  g.font = '22px serif';
+  g.fillText('🦒 💖 🌸 ✨ 💫 🎀 💕', W/2, 940);
+}
+
+function roundRect(g, x, y, w, h, r) {
+  g.beginPath();
+  g.moveTo(x + r, y);
+  g.arcTo(x + w, y, x + w, y + h, r);
+  g.arcTo(x + w, y + h, x, y + h, r);
+  g.arcTo(x, y + h, x, y, r);
+  g.arcTo(x, y, x + w, y, r);
+  g.closePath();
+}
+
+function wrapText(g, text, x, y, maxWidth, lineHeight) {
+  const words = text.split(' ');
+  let line = '';
+  let lines = [];
+  for (let n = 0; n < words.length; n++) {
+    const testLine = line + words[n] + ' ';
+    const metrics = g.measureText(testLine);
+    if (metrics.width > maxWidth && n > 0) {
+      lines.push(line.trim());
+      line = words[n] + ' ';
+    } else {
+      line = testLine;
+    }
+  }
+  lines.push(line.trim());
+  lines.forEach((l, i) => {
+    g.fillText(l, x, y + i * lineHeight);
+  });
+}
+
+function downloadShareImage() {
+  vibrate(15);
+  const canvas = document.getElementById('sharePreviewCanvas');
+  canvas.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `baby-giraffe-kdrama-${lastResult.score}pct.png`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+    const toast = document.createElement('div');
+    toast.className = 'secret-toast';
+    toast.textContent = '✅ Image downloaded! Ab Instagram kholo 📸';
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+    moreConfetti();
+  }, 'image/png');
+}
+
+function shareToInstagram() {
+  vibrate(15);
+  const canvas = document.getElementById('sharePreviewCanvas');
+  canvas.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `baby-giraffe-kdrama-${lastResult.score}pct.png`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+    const toast = document.createElement('div');
+    toast.className = 'secret-toast';
+    toast.style.maxWidth = '90vw';
+    toast.style.textAlign = 'left';
+    toast.style.fontSize = '0.82rem';
+    toast.style.padding = '16px 20px';
+    toast.style.flexDirection = 'column';
+    toast.style.alignItems = 'flex-start';
+    toast.innerHTML = `
+      <div style="text-align:center;width:100%;font-size:1rem;margin-bottom:6px;">📸 <b>Instagram Share</b></div>
+      <b>1.</b> Image download ho gayi ✅<br>
+      <b>2.</b> Instagram app kholo 📱<br>
+      <b>3.</b> Story → Gallery → Image select 🖼️<br>
+      <b>4.</b> Post karo! 🎉
+    `;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 6000);
+
+    // Try to open Instagram app on mobile, website on desktop
+    setTimeout(() => {
+      if (isMobile) {
+        // Try app, fallback to web
+        window.location.href = 'instagram://library';
+        setTimeout(() => {
+          window.open('https://www.instagram.com/', '_blank');
+        }, 800);
+      } else {
+        window.open('https://www.instagram.com/', '_blank');
+      }
+    }, 1200);
+
+    moreConfetti();
+  }, 'image/png');
+}
+
+async function nativeShare() {
+  vibrate(15);
+  const canvas = document.getElementById('sharePreviewCanvas');
+  canvas.toBlob(async blob => {
+    const file = new File([blob], 'baby-giraffe-kdrama.png', { type: 'image/png' });
+    try {
+      await navigator.share({
+        title: 'Baby Giraffe 🦒 K-Drama Love Test',
+        text: `I got ${lastResult.score}% on the Baby Giraffe K-Drama Love Test! 💕 ${lastResult.vibe.vibe}`,
+        files: [file]
+      });
+    } catch (err) {
+      console.log('Share cancelled');
+    }
+  }, 'image/png');
+}
+
+document.getElementById('shareModal').addEventListener('click', (e) => {
+  if (e.target.id === 'shareModal') closeShareModal();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeShareModal();
+});
+
+// ==================== PREVENT DOUBLE-TAP ZOOM ====================
+let lastTouchEnd = 0;
+document.addEventListener('touchend', (e) => {
+  const now = Date.now();
+  if (now - lastTouchEnd <= 300) e.preventDefault();
+  lastTouchEnd = now;
+}, { passive: false });
+
+// Prevent pull-to-refresh on quiz screen (optional)
+document.body.style.overscrollBehavior = 'contain';
+</script>
+</body>
+</html>
